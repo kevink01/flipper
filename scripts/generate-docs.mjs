@@ -64,7 +64,9 @@ async function getMethoHeaders() {
 			encoding: 'utf-8',
 			withFileTypes: true,
 		});
-		const filteredFiles = files.filter((file) => file.name !== 'index.ts');
+		const filteredFiles = files.filter(
+			(file) => file.name !== 'index.ts' && !file.isDirectory,
+		);
 		for (const file of filteredFiles) {
 			let isMethodHeader = false;
 			let methodHeaderBuffer = [];
