@@ -1,0 +1,6 @@
+{
+	"extends": "@kevink01/flipper/dist/tsconfig/tsconfig.web.json",
+	"compilerOptions": {
+		"declaration": true
+	}
+}

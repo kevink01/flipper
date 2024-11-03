@@ -1,0 +1,7 @@
+{
+	"extends": "@kevink01/flipper/dist/tsconfig/web/tsconfig.lib.json",
+	"compilerOptions": {
+		"composite": true,
+		"declarationMap": true
+	}
+}

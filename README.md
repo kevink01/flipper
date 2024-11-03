@@ -29,12 +29,7 @@ A package for utility functions & templates that can be reused in projects
 ##### Definition
 
 ```ts
-/**
- * Convers ms into a XX:YY:ZZ timestamp
- * @param ms Timestamp given in milliseconds
- * @returns Timestamp converted to XX:YY:ZZ format
- */
-function msToTimestamp(ms: number): string;
+
 ```
 
 ##### Examples
@@ -67,15 +62,7 @@ console.log(timestamp3); // 1:00:05
 ##### Definition
 
 ```ts
-/**
- * Converts a date into a time format. Format may include:
- * 1. 'X second(s)'
- * 2. 'X minute(s) and Y second(s)
- * 3. 'X hour(s), Y minute(s), and Z second(s)
- * @param ms Timestamp given in milliseconds
- * @returns Timestamp converted to time format
- */
-function msToTime(ms: number): string;
+
 ```
 
 ##### Examples
@@ -109,12 +96,7 @@ console.log(time4); // 1 hour, 14 minutes, and 34 seconds
 ##### Definition
 
 ```ts
-/**
- * Converts a local date object to a UTC date object
- * @param date Date object based on locale
- * @returns UTC date
- */
-function dateToUTC(date: Date): Date;
+
 ```
 
 ##### Examples
@@ -133,13 +115,7 @@ const utc_date = dateToUTC(date); // UTC +00:00
 ##### Definition
 
 ```ts
-/**
- * Round a number to a specified digit place
- * @param num Number to round
- * @param precision The digit to round to
- * @returns Rounded number
- */
-function round(num: number, precision: number): number;
+
 ```
 
 ##### Examples
@@ -165,13 +141,7 @@ console.log(rounded3); // -9
 ##### Definition
 
 ```ts
-/**
- * Add trailing decimal places to a number
- * @param num Number to add decimal places
- * @param decimals The number of decimal places to add
- * @returns Fixed number with specified decimal places
- */
-function fix(num: number, decimals: number): string;
+
 ```
 
 ##### Examples
@@ -195,12 +165,7 @@ console.log(fixed2); // 13.00
 ##### Definition
 
 ```ts
-/**
- * Shuffles a generic array
- * @param arr The array to be shuffled
- * @returns Shuffled array
- */
-function shuffle<T>(arr: T[]): T[];
+
 ```
 
 ##### Examples
@@ -221,12 +186,7 @@ console.log(shuffle(array)); // [9,1,6,8,4]
 ##### Definition
 
 ```ts
-/**
- * Get the intiials of a string username.
- * @param name The full name of the user. Assumes first and last name is provided.
- * @returns The initials of the user's full name, or their first name initial. Otherwise, return "AA"
- */
-function getInitials(name?: string): string;
+
 ```
 
 ##### Examples
@@ -252,12 +212,7 @@ console.log(initials3); // JS
 ##### Definition
 
 ```ts
-/**
- * Capitalizes the string
- * @param str String to capitlize
- * @returns The first letter of the string capitalized, while case is preserved
- */
-function capitalize(str: string): string;
+
 ```
 
 ##### Examples
@@ -279,13 +234,7 @@ console.log(capitalized); // Avocado
 ##### Definition
 
 ```ts
-/**
- * Truncate the string to a maximum length, and add ellipse to the tail
- * @param str String to ellipse
- * @param maxLength The maximum length the string should have
- * @returns Ellipsed string (or the full string if str's length < maxLength)
- */
-function ellipse(str: string, maxLength: number): string;
+
 ```
 
 ##### Examples
