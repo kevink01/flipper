@@ -15,3 +15,7 @@ tests
 .gitignore
 tsconfig.json
 vitest.config.mjs
+
+# Markdown
+CHANGELOG.md
+CONTRIBUTING.md

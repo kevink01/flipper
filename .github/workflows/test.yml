@@ -1,0 +1,46 @@
+name: Lint & Test
+
+on:
+  push:
+    branches:
+      - '**'
+      - '!main'
+
+env:
+  NODE_VERSION: ${{ 20 }}
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.NODE_VERSION }}
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint codebase
+        run: pnpm lint
+
+      - name: Test functions
+        run: pnpm test
+
+      - name: Build application
+        run: pnpm build

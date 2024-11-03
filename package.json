@@ -10,9 +10,11 @@
 	"types": "dist/index.d.ts",
 	"scripts": {
 		"build": "tsup src/index.ts --format cjs,esm --dts --minify",
+		"changeset": "changeset",
 		"lint": "eslint . --max-warnings 0",
 		"lint:fix": "eslint . --fix",
 		"prepare": "husky",
+		"release": "changeset publish",
 		"test": "vitest run --reporter=verbose",
 		"test:coverage": "vitest --coverage",
 		"test:ui": "vitest --ui",
@@ -32,6 +34,7 @@
 	},
 	"homepage": "https://github.com/kevink01/flippert#readme",
 	"devDependencies": {
+		"@changesets/cli": "^2.27.9",
 		"@types/node": "^22.7.8",
 		"@typescript-eslint/eslint-plugin": "^8.11.0",
 		"@typescript-eslint/parser": "^8.11.0",
