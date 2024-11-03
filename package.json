@@ -1,6 +1,6 @@
 {
 	"name": "@kevink01/flipper",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"description": "A utility library for configurations and helper methods",
 	"publishConfig": {
 		"access": "public"
