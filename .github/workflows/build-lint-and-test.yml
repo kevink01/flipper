@@ -1,4 +1,4 @@
-name: Lint & Test
+name: Lint, test, and build
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install Node.js
+      - name: Install node.js
         uses: actions/setup-node@v4
         with:
           node-version: ${{ inputs.NODE_VERSION }}
@@ -26,7 +26,7 @@ jobs:
         with:
           version: 9
 
-      - name: Use Node.js
+      - name: Use node.js
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}

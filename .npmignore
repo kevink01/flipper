@@ -4,6 +4,8 @@
 
 src
 tests
+scripts
+examples
 
 # Linting & formatting
 .eslintrc.json

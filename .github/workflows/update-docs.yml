@@ -1,7 +1,8 @@
 name: Publish Package
 
 on:
-  push:
+  pull_request:
+    types: [opened, reopened]
     branches:
       - main
 
@@ -19,6 +20,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Install node.js
         uses: actions/setup-node@v4
@@ -43,11 +47,14 @@ jobs:
       - name: Build application
         run: pnpm build
       
-      - name: Create release pull request or publish
-        id: changesets
-        uses: changesets/action@v1
+      - name: Update README
+        run: UPDATE_STATUS="$(node .github/update-readme.mjs)" && echo "UPDATE_STATUS=$UPDATE_STATUS" >> $GITHUB_ENV
+
+      - name: Publish README (if needed)
+        if: ${{ env.UPDATE_STATUS == 'true' }}
+        uses: EndBug/add-and-commit@v9
         with:
-          publish: pnpm release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}    
+          add: "['README.md']"
+          message: "chore: Update README docs"
+          committer_name: GitHub Actions
+          committer_email: actions@github.com
