@@ -1,0 +1,6 @@
+{
+	"extends": "@kevink01/flipper/dist/tsconfig/tsconfig.base.json",
+	"compilerOptions": {
+		"lib": ["ES2022"]
+	}
+}

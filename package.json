@@ -11,6 +11,8 @@
 	"scripts": {
 		"build": "tsup src/index.ts --format cjs,esm --dts --minify",
 		"build:readme": "node scripts/generate-docs.mjs",
+		"build:tsconfig": "copyfiles -V -u 2 src/packages/tsconfig/*.json src/packages/tsconfig/**/*.json dist/",
+		"postbuild": "pnpm build:tsconfig",
 		"changeset": "changeset",
 		"lint": "eslint . --max-warnings 0",
 		"lint:fix": "eslint . --fix",
@@ -33,7 +35,7 @@
 	"engines": {
 		"node": ">=20"
 	},
-	"homepage": "https://github.com/kevink01/flippert#readme",
+	"homepage": "https://github.com/kevink01/flipper#readme",
 	"devDependencies": {
 		"@changesets/cli": "^2.27.9",
 		"@types/node": "^22.7.8",
@@ -41,6 +43,7 @@
 		"@typescript-eslint/parser": "^8.11.0",
 		"@vitest/coverage-v8": "^2.1.3",
 		"@vitest/ui": "^2.1.3",
+		"copyfiles": "^2.4.1",
 		"eslint": "^8.57.1",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-import-resolver-typescript": "^3.6.3",
