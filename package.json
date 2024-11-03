@@ -1,0 +1,44 @@
+{
+	"name": "@kevink01/flipper",
+	"version": "0.0.0",
+	"description": "A utility library for configurations and helper methods",
+	"publishConfig": {
+		"access": "public"
+	},
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "tsup src/index.ts --format cjs,esm --dts --minify",
+		"lint": "eslint . --max-warnings 0",
+		"lint:fix": "eslint . --fix",
+		"prepare": "husky"
+	},
+	"author": "Kevin Kulich",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/kevink01/flipper/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/kevink01/flipper.git"
+	},
+	"engines": {
+		"node": ">=20"
+	},
+	"homepage": "https://github.com/kevink01/flippert#readme",
+	"devDependencies": {
+		"@types/node": "^22.7.8",
+		"@typescript-eslint/eslint-plugin": "^8.11.0",
+		"@typescript-eslint/parser": "^8.11.0",
+		"eslint": "^8.57.1",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-import-resolver-typescript": "^3.6.3",
+		"eslint-plugin-import": "^2.31.0",
+		"husky": "^9.1.6",
+		"lint-staged": "^15.2.10",
+		"prettier": "^3.3.3",
+		"tsup": "^8.3.0",
+		"typescript": "^5.6.3"
+	}
+}

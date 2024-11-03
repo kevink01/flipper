@@ -1,0 +1,16 @@
+.changeset
+.github
+.husky
+
+src
+
+# Linting & formatting
+.eslintrc.json
+.lintstagedrc
+.prettierignore
+.prettierrc
+
+# Repo files
+.gitignore
+tsconfig.json
+vitest.config.mjs
