@@ -1,5 +1,1 @@
-function test() {
-	return 'Hello World';
-}
-
-test();
+export * from './shuffle';
