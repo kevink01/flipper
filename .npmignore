@@ -3,6 +3,7 @@
 .husky
 
 src
+tests
 
 # Linting & formatting
 .eslintrc.json
