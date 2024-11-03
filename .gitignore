@@ -1,0 +1,9 @@
+node_modules
+
+# Output
+dist
+tests/coverage
+
+# IDE settings
+.vscode
+.idea

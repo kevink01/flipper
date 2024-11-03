@@ -1,0 +1,60 @@
+name: Publish Package
+
+on:
+  pull_request:
+    types: [opened, reopened]
+    branches:
+      - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+env:
+  NODE_VERSION: ${{ 20 }}
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: Install node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Use node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build application
+        run: pnpm build
+      
+      - name: Update README
+        run: UPDATE_STATUS="$(node .github/update-readme.mjs)" && echo "UPDATE_STATUS=$UPDATE_STATUS" >> $GITHUB_ENV
+
+      - name: Publish README (if needed)
+        if: ${{ env.UPDATE_STATUS == 'true' }}
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: "['README.md']"
+          message: "chore: Update README docs"
+          committer_name: GitHub Actions
+          committer_email: actions@github.com

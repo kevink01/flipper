@@ -1,0 +1,29 @@
+# Output directory
+dist
+.next
+
+# Package manager
+node_modules
+pnpm-lock.yaml
+
+# IDE settings
+.idea
+.vscode
+
+# Configure files
+.husky
+
+# Ignore files
+.gitignore
+.prettierignore
+.npmignore
+
+# Images
+*.ico
+*.svg
+*.png
+*.jpg
+*.jpeg
+
+# Workflows
+.github
